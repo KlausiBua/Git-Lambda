@@ -1,10 +1,8 @@
 package beispiel3.htlgkr.KlausnerL22066;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.Buffer;
 
 public class NumberTester {
 
@@ -36,7 +34,7 @@ public class NumberTester {
             int numberOfTests = Integer.parseInt(reader.readLine());
             for(int i = 0; i < numberOfTests; i++){
                 String[] parts = reader.readLine().split(",");
-                int number = Integer.parseInt(parts[2]);
+                int number = Integer.parseInt(parts[1]);
                 switch(Integer.parseInt(parts[0])){
                     case 1:
                         if(oddTester.testNumber(number)){
@@ -74,5 +72,9 @@ public class NumberTester {
 
     public void setPalindromeTester(NumberTest palindromeTester){
         this.palindromeTester = palindromeTester;
+    }
+
+    public static void main(String[] args) {
+        NumberTester nt = new NumberTester("werte.csv");
     }
 }
