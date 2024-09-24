@@ -5,5 +5,6 @@ package beispiel2.htlgkr.KlausnerL22066;
 public class Main {
     public static void main(String[] args) {
 
+
     }
 }
