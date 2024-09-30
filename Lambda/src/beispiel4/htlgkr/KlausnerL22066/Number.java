@@ -27,6 +27,6 @@ public class Number {
 
     @Override
     public String toString() {
-        return "a=" + a + ", b=" + b;
+        return "a= " + a + ", b= " + b;
     }
 }

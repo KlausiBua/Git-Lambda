@@ -4,13 +4,13 @@ public class ComplexCalculator extends AbstractCalculator {
 
     public ComplexCalculator() {
         super(
-                (x, y) -> new Number(x.getA() + y.getA(), x.getB() + y.getB()), // Addition
-                (x, y) -> new Number(x.getA() - y.getA(), x.getB() - y.getB()), // Subtraktion
-                (x, y) -> new Number(x.getA() * y.getA() - x.getB() * y.getB(), x.getA() * y.getB() + x.getB() * y.getA()), // Multiplikation
+                (x, y) -> new Number(x.getA() + y.getA(), x.getB() + y.getB()),     
+                (x, y) -> new Number(x.getA() - y.getA(), x.getB() - y.getB()),
+                (x, y) -> new Number(x.getA() * y.getA() - x.getB() * y.getB(), x.getA() * y.getB() + x.getB() * y.getA()),
                 (x, y) -> {
                     double denominator = y.getA() * y.getA() + y.getB() * y.getB();
                     return new Number((x.getA() * y.getA() + x.getB() * y.getB()) / denominator,
-                            (x.getB() * y.getA() - x.getA() * y.getB()) / denominator); // Division
+                            (x.getB() * y.getA() - x.getA() * y.getB()) / denominator);
                 }
         );
     }

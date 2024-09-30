@@ -6,7 +6,7 @@ public class ConsoleInterface {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        AbstractCalculator calculator = null;
+        AbstractCalculator calculator;
 
         while (true) {
             System.out.println("Choose calculator:");
@@ -53,7 +53,7 @@ public class ConsoleInterface {
                     continue;
                 }
 
-                Number result = null;
+                Number result;
                 switch (number) {
                     case 1:
                         result = calculator.add(x, y);
@@ -83,9 +83,9 @@ public class ConsoleInterface {
     }
 
     private static Number getInputNumber(Scanner scanner, String name) {
-        System.out.print("Enter number " + name + " a>");
+        System.out.print("Enter number " + name + " a> ");
         double a = scanner.nextDouble();
-        System.out.print("Enter number " + name + " b>");
+        System.out.print("Enter number " + name + " b> ");
         double b = scanner.nextDouble();
         return new Number(a, b);
     }
