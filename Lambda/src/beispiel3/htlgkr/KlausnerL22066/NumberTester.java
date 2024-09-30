@@ -6,6 +6,8 @@ import java.io.IOException;
 
 public class NumberTester {
 
+    private static final String FILENAME = "werte.csv";
+
     NumberTest oddTester = (number) -> number % 2 != 0;
     NumberTest primeTester = (number) -> {
         if(number < 2){
@@ -79,6 +81,6 @@ public class NumberTester {
     }
 
     public static void main(String[] args) {
-        NumberTester nt = new NumberTester("werte.csv");
+        NumberTester nt = new NumberTester(FILENAME);
     }
 }
