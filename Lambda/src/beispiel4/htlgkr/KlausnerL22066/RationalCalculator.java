@@ -3,7 +3,7 @@ package beispiel4.htlgkr.KlausnerL22066;
 public class RationalCalculator extends AbstractCalculator{
 
 
-    public RationalCalculator(CalculationOperation add, CalculationOperation subtract, CalculationOperation multiply, CalculationOperation divide) {
+    public RationalCalculator() {
         super(
                 (x, y) -> new Number(x.getA() + y.getA(), 0),
                 (x, y) -> new Number(x.getA() - y.getA(), 0),

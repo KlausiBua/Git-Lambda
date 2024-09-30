@@ -2,7 +2,7 @@ package beispiel4.htlgkr.KlausnerL22066;
 
 import java.util.Scanner;
 
-public class CalculatorApp {
+public class ConsoleInterface {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -35,8 +35,8 @@ public class CalculatorApp {
                     continue;
             }
 
-            Number x = inputNumber(scanner, "x");
-            Number y = inputNumber(scanner, "y");
+            Number x = getInputNumber(scanner, "x");
+            Number y = getInputNumber(scanner, "y");
 
             while (true) {
                 System.out.println("Choose operation:");
@@ -45,16 +45,16 @@ public class CalculatorApp {
                 System.out.println("3 = multiply");
                 System.out.println("4 = divide");
                 System.out.println("5 = enter numbers again");
-                int operation = scanner.nextInt();
+                int number = scanner.nextInt();
 
-                if (operation == 5) {
-                    x = inputNumber(scanner, "x");
-                    y = inputNumber(scanner, "y");
+                if (number == 5) {
+                    x = getInputNumber(scanner, "x");
+                    y = getInputNumber(scanner, "y");
                     continue;
                 }
 
                 Number result = null;
-                switch (operation) {
+                switch (number) {
                     case 1:
                         result = calculator.add(x, y);
                         break;
@@ -82,10 +82,10 @@ public class CalculatorApp {
         scanner.close();
     }
 
-    private static Number inputNumber(Scanner scanner, String name) {
-        System.out.println("Enter number " + name + " a:");
+    private static Number getInputNumber(Scanner scanner, String name) {
+        System.out.print("Enter number " + name + " a>");
         double a = scanner.nextDouble();
-        System.out.println("Enter number " + name + " b:");
+        System.out.print("Enter number " + name + " b>");
         double b = scanner.nextDouble();
         return new Number(a, b);
     }
