@@ -8,11 +8,11 @@ public class NumberTester {
 
     NumberTest oddTester = (number) -> number % 2 != 0;
     NumberTest primeTester = (number) -> {
-        if (number <= 1) {
+        if(number < 2){
             return false;
         }
-        for (int i = 2; i <= number; i++) {
-            if (number % i == 0) {
+        for(int i = 2; i <= Math.sqrt(number); i++){
+            if(number % i == 0){
                 return false;
             }
         }
@@ -29,37 +29,41 @@ public class NumberTester {
     };
 
     public NumberTester(String filename){
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
-            int numberOfTests = Integer.parseInt(reader.readLine());
+        try(BufferedReader br = new BufferedReader(new FileReader(filename))){
+            String line = br.readLine();
+            int numberOfTests = Integer.parseInt(line);
             for(int i = 0; i < numberOfTests; i++){
-                String[] parts = reader.readLine().split(",");
+                line = br.readLine();
+                String[] parts = line.split(",");
                 int number = Integer.parseInt(parts[1]);
-                switch(Integer.parseInt(parts[0])){
+                switch (Integer.parseInt(parts[0])){
                     case 1:
                         if(oddTester.testNumber(number)){
                             System.out.println("ODD");
-                        } else {
+                        }else{
                             System.out.println("EVEN");
                         }
                         break;
                     case 2:
                         if(primeTester.testNumber(number)){
                             System.out.println("PRIME");
-                        } else {
+                        }else{
                             System.out.println("NO PRIME");
                         }
+                        break;
                     case 3:
                         if(palindromeTester.testNumber(number)){
                             System.out.println("PALINDROME");
-                        } else {
+                        }else{
                             System.out.println("NO PALINDROME");
                         }
+                        break;
                 }
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            e.printStackTrace();
         }
+
     }
 
     public void setOddEvenTester(NumberTest oddTester){
